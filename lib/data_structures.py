@@ -32,21 +32,22 @@ def get_spiciest_foods(spicy_foods):
             spicy.append(food)
     return spicy
 
-# print(get_spiciest_foods(spicy_foods))
 
-def print_spicy_foods(get_spiciest_foods, spicy_foods):
-    print(get_spiciest_foods(spicy_foods))
+def print_spicy_foods(spicy_foods):
+    for food in spicy_foods:
+        print(f"{food['name']} ({food['cuisine']}) | Heat Level: {'🌶' * food['heat_level']}")
 
-    pass
-# print_spicy_foods(get_spiciest_foods, spicy_foods)
+    
 
 def get_spicy_food_by_cuisine(spicy_foods, cuisine):
     for food in spicy_foods:
         if food["cuisine"] == cuisine:
             return food
 
-def print_spiciest_foods(get_spicy_food_by_cuisine, spicy_foods, cuisine):
-    print(get_spicy_food_by_cuisine(spicy_foods, cuisine))
+def print_spiciest_foods(spicy_foods):
+    for food in spicy_foods:
+        if food['heat_level'] > 5:
+            print(f"{food['name']} ({food['cuisine']}) | Heat Level: {'🌶' * food['heat_level']}")
     
 # print_spiciest_foods(get_spicy_food_by_cuisine, spicy_foods, "Sichuan")
 
@@ -55,24 +56,24 @@ def get_average_heat_level(spicy_foods):
     total_heat=0
     for food in spicy_foods:
         total_heat +=food["heat_level"]
-    return f"Average heat: {total_heat/len(spicy_foods)}"
+    return total_heat/len(spicy_foods)
 
-print(get_average_heat_level(spicy_foods))
+# print(get_average_heat_level(spicy_foods))
 
-def create_spicy_food(spicy_foods):
-    name=input("Name of food >>>")
-    cuisine=input("Name of cuisine >>>")
-    spice=int(input("spice level >>>"))
+def create_spicy_food(spicy_foods, spicy_food):
+    # name=input("Name of food >>>")
+    # cuisine=input("Name of cuisine >>>")
+    # spice=int(input("spice level >>>"))
 
-    spicy_food={
-        "name":name,
-        "cuisine":cuisine,
-        "heat_level":spice
-    }
+    # spicy_food={
+    #     "name":name,
+    #     "cuisine":cuisine,
+    #     "heat_level":spice
+    # }
     spicy_foods.append(spicy_food)
     return spicy_foods
 
-create_spicy_food(spicy_foods)
+# create_spicy_food(spicy_foods)
 
-print(spicy_foods)
+# print(spicy_foods)
 
